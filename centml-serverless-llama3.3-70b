@@ -1,0 +1,52 @@
+export default {
+    async fetch(request) {
+        // Define CentML API URL
+        const centmlUrl = "https://api.centml.com/openai/v1/chat/completions";
+
+        // Define headers
+        const headers = {
+            "Authorization": "Bearer q2t-CKohZGNpRfwcTucqKeOI0KDdT3jw9NaNgTJZbBU",
+            "Content-Type": "application/json"
+        };
+
+        // Define the request body
+        const body = JSON.stringify({
+            "model": "meta-llama/Llama-3.3-70B-Instruct",
+            "messages": [
+                {"role": "system", "content": "you are helpful"},
+                {"role": "user", "content": [{"type": "text", "text": "Ping"}]},
+                {"role": "assistant", "content": "Pong! How can I assist you today?"}
+            ],
+            "max_tokens": 2000,
+            "n": 1,
+            "stream": false,
+            "temperature": 0.7,
+            "top_p": 1,
+            "top_k": 40,
+            "frequency_penalty": 0,
+            "presence_penalty": 0.5,
+            "stop": []
+        });
+
+        try {
+            // Send POST request to CentML API
+            const response = await fetch(centmlUrl, {
+                method: "POST",
+                headers: headers,
+                body: body
+            });
+
+            // Parse the response JSON
+            const data = await response.json();
+
+            // Check if response contains "Pong!"
+            if (data.choices && data.choices[0]?.message?.content.includes("Pong!")) {
+                return new Response("CentML API is healthy", { status: 200 });
+            } else {
+                return new Response("Unexpected response from CentML API", { status: 502 });
+            }
+        } catch (error) {
+            return new Response("Error contacting CentML API: " + error.message, { status: 500 });
+        }
+    }
+};
