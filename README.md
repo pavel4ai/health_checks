@@ -1,18 +1,18 @@
 # GPU Server Health Checks & GPU Stress Testing Suite using AI Video generation
-Pavel's AI & System Performance Benchmarking Toolkit
+Bsic AI & System Performance Benchmarking Toolkit for empirically evaluating GPU providers.
 
-This suite designed to evaluate:
+This script is designed to evaluate:
 
-- GPU performance & scaling efficiency using AI-driven video generation.
-- System resource utilization (GPU, CPU, Memory, Disk I/O).
-- Network performance (Bandwidth, Latency, Jitter) via iperf3.
-- Storage performance (Read/Write Speed) via fio.
-- Real-time monitoring and visualization using Prometheus & Grafana.
-- Seamless video streaming of AI-generated content via NGINX & FFmpeg.
+- GPU performance & scaling efficiency using AI-driven video generation.  
+- System resource utilization (GPU, CPU, Memory, Disk I/O).  
+- Network performance (Bandwidth, Latency, Jitter) via iperf3.  
+- Storage performance (Read/Write Speed) via fio.  
+- Real-time monitoring and visualization using Prometheus & Grafana.  
+- Seamless video streaming of AI-generated content via NGINX & FFmpeg.  
 
-🚀 Built for testing cloud GPUs (H100, H200, B200) & local hardware. 
-🖥️ Supports single-GPU benchmarking with AI-generated video. Multi GPU support coming soon.
-🔍 Provides real-time system telemetry & stress testing tools.
+🚀 Built for testing cloud GPUs (H100, H200, B200) & local hardware.   
+🖥️ Supports single-GPU benchmarking with AI-generated video. Multi GPU support coming soon.  
+🔍 Provides real-time system telemetry & stress testing tools.  
 
 ## Quick Start Guide
 
