@@ -20,7 +20,29 @@ iperf3 -s &
 
 # Run disk performance test using fio
 echo "💾 Running Disk Performance Benchmark..."
-fio --name=rand_read --ioengine=libaio --iodepth=4 --rw=randread --bs=128k --numjobs=1 --size=1G --runtime=60 --time_based --filename=/workspace/testfile --group_reporting
+fio --name=rand_read --ioengine=libaio --iodepth=4 --rw=randread --bs=128k --numjobs=1 --size=1G --runtime=60 --time_based --filename=/workspace/testfile --group_reporting &
+
+# Create directory for renamed videos
+mkdir -p /workspace/generated_videos
+
+# Rename and move generated videos continuously
+echo "♻️ Monitoring new videos and renaming them..."
+while true; do
+    count=1
+    for file in /workspace/Wan2.1/t2v_*.mp4; do
+        if [[ -f "$file" ]]; then
+            new_name="/workspace/generated_videos/test${count}.mp4"
+            mv "$file" "$new_name"
+            echo "Renamed: $file → $new_name"
+            ((count++))
+            if ((count > 10)); then break; fi
+        fi
+    done
+    sleep 5  # Check every 5 seconds
+done &
+
+# Generate the video serving web page
+/workspace/video_serving.sh
 
 echo "✅ WAN Video Test Environment is now running!"
 echo "👉 Visit http://localhost:7860 to generate videos"
