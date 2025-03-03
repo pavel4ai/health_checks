@@ -45,12 +45,13 @@ Monitor System Metrics in Real Time:
 📌 Visit http://localhost:9090  
 📌 Metrics Captured:  
 
-GPU Utilization (%)  
-VRAM Consumption (GB)  
-CPU Usage (%)  
-Memory Usage (%)  
-Disk Read/Write Speed (via fio)  
-Network I/O (via iperf3)  
+##### GPU Utilization (%)  
+##### VRAM Consumption (GB)  
+##### CPU Usage (%)  
+##### Memory Usage (%)  
+##### Disk Read/Write Speed (via fio)  
+##### Network I/O (via iperf3)  
+
 📡 Streaming AI-Generated Videos  
 📌 Visit http://localhost:8081/videos/  
 📌 Videos stream in a continuous loop via FFmpeg & NGINX.  
