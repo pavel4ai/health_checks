@@ -6,7 +6,7 @@
 ''docker run --gpus all -it --name wan2.1-t2v-14b -v wan2.1-t2v-14b:/workspace -p 7860:7860 -p 9090:9090 -p 8081:8081 -p 5201:5201 wan2.1-t2v-14b-stress-test
 
 2. Download model weigts 
-''huggingface-cli download Wan-AI/Wan2.1-T2V-14B --local-dir /workspace/Wan2.1/Wan2.1-T2V-14B
+'''huggingface-cli download Wan-AI/Wan2.1-T2V-14B --local-dir /workspace/Wan2.1/Wan2.1-T2V-14B
 
 3. Run the Gradio Video Generation UI
 Visit: http://localhost:7860
