@@ -18,9 +18,12 @@ nginx -g "daemon off;" &
 echo "🌐 Starting iperf3 network performance test server on port 5201..."
 iperf3 -s &
 
-# Run disk performance test using fio
-echo "💾 Running Disk Performance Benchmark..."
-fio --name=rand_read --ioengine=libaio --iodepth=4 --rw=randread --bs=128k --numjobs=1 --size=1G --runtime=60 --time_based --filename=/workspace/testfile --group_reporting &
+# Start continuous disk performance monitoring
+echo "💾 Running Continuous Disk Performance Benchmark..."
+while true; do
+    fio --name=rand_read --ioengine=libaio --iodepth=4 --rw=randread --bs=128k --numjobs=1 --size=1G --runtime=60 --time_based --filename=/workspace/testfile --group_reporting > /workspace/fio_output.log
+    sleep 5  # Run `fio` every 5 seconds
+done &
 
 # Create directory for renamed videos
 mkdir -p /workspace/generated_videos
